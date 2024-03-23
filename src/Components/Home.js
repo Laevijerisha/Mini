@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Element, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './Home.css';
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,6 +7,8 @@ function Home() {
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+
+  const LearnMore = "https://www.who.int/news-room/fact-sheets/detail/electronic-waste-(e-waste)";
   return (
     <div class="container-fluid">
       <nav className="navbar">
@@ -65,7 +67,9 @@ function Home() {
                 <div className="feature">
                     <h2>Learn & Educate</h2>
                     <p>Learn about e-waste and how to manage it responsibly.</p>
-                    <button>Learn More</button>
+                    <a href={LearnMore} target="_blank">
+                      <button>Learn More</button>
+                    </a>
                 </div>
             </div>
         </div>

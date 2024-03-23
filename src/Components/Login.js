@@ -48,22 +48,26 @@ function Login() {
             
             if(!values.Email){
                 errors.Email="Email is required!";
-            } else if (regex.test(values.Email)){
-                navigate("/centerdash")
-            }else if (values.Email==='admin123@admin.com'&& values.Password==='admin123'){
-              navigate("/admindash")
-            }else{
-              navigate("/userdash")
-            }
-            if(!values.Password){
+            } 
+            else {
+              let name = values.Email.substring(0,values.Email.indexOf('@'));
+              if (regex.test(values.Email)){
+                navigate("/centerdash", {state: {username: name, email: values.Email} })
+              }else if (values.Email==='admin123@admin.com'&& values.Password==='admin123'){
+                navigate("/admindash")
+              }else{
+                navigate("/userdash", {state: {username: name, email: values.Email} })
+              }
+              if(!values.Password){
                 errors.Password="Password is required!";
-            }else if (values.Password.length < 4 ){
+              }else if (values.Password.length < 4 ){
                 errors.Password="Password must be more than 4 charcters"
-            }else if (values.Password.length > 10 ){
+              }else if (values.Password.length > 10 ){
                 errors.Password="Password must be exceed more than 10 charcters"
+              }
             }
             if(Object.keys(formErrors).length === 0 && isSubmit){
-                navigate("/home")
+              navigate("/home")
             }
 
                 

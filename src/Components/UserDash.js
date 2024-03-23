@@ -1,10 +1,13 @@
 import React from 'react'
 import './UserDash.css'
 import { useState } from 'react';
+import { useLocation, NavLink } from 'react-router-dom';
 
 function UserDash() {
     const [showSideNav, setShowSideNav] = useState(false);
     const [activePage, setActivePage] = useState('home');
+    const location = useLocation();
+    const {username} = location.state;
 
     const toggleSideNav = () => {
         setShowSideNav(!showSideNav);
@@ -34,8 +37,11 @@ function UserDash() {
                     Menu
                 </button>
                 <div className="user-info">
-                    <span>Welcome, User Name</span>
-                    <button className='logout-btn' onClick={() => alert('Logout')}>Logout</button>
+                    <span>Welcome, {username}</span>
+                    <NavLink to='/'>
+                        <button className='logout-btn' onClick={() => alert('Logout')}>Logout</button>
+                    </NavLink>
+                    
                 </div>
             </div>            
             <div className={`side-nav ${showSideNav ? 'open' : ''}`}>
