@@ -9,9 +9,11 @@
 .top-nav {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     padding: 10px;
-    background-color: #333;
+    background-color:#627254;
     color: #fff;
+    height: 9rem;
 }
 
 .user-info {
@@ -27,8 +29,9 @@
 }
 
 .menu-btn {
-    align-self: flex-start;
-    margin: 10px;
+    position: absolute;
+    left: 30px;
+    padding: 15px 35px;
     background-color: #333;
     color: #fff;
     border: none;
