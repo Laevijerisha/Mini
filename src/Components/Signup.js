@@ -2,6 +2,8 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { NavLink ,useNavigate} from 'react-router-dom';
+import recycle from './Images/recycle.png'
+import './Signup.css'
 import Electronics from '../Components/Images/Elec.gif';
 function Signup() {
     const initalvalues = { UserName: "",PhoneNumber:"",Location:"", Email: "", Password: "", Cpassword: "" };
@@ -85,44 +87,43 @@ function Signup() {
     return (
         <div class='container'>
             <div className='signup'>
-            {/* <div className='images' >
-                <img  className="head"  src={Electronics} alt="login form"></img>
-            </div> */}
-            <form onSubmit={handleSubmit} className='form'>
-                <h1 style={{ display: 'flex', justifyContent: 'center' }}>Signup</h1>
-                <hr></hr>
-                <div className="form-floating ">
-                    <input type="text" class="form-control" id="username" name="UserName" value={formValues.UserName} onChange={handleChange} />
-                    <label htmlFor="UserName">UserName</label>
-                </div><p>{formErrors.UserName}</p>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="phone" name="PhoneNumber" value={formValues.PhoneNumber} onChange={handleChange}/>
-                    <label htmlFor="PhoneNumber">PhoneNumber</label>
-                </div><p>{formErrors.PhoneNumber}</p>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="location" name="Location" value={formValues.Location} onChange={handleChange} />
-                    <label htmlFor="Location">Location</label>
-                </div><p>{formErrors.Location}</p>
-                <div className="form-floating ">
-                    <input type="email" class="form-control" id="email" name="Email" value={formValues.Email} onChange={handleChange} />
-                    <label htmlFor="email">Email</label>
-                </div><p>{formErrors.Email}</p>
+                <form onSubmit={handleSubmit} className='form'>
+                    <h1 style={{ display: 'flex', justifyContent: 'center' }}>Signup</h1>
+                    <hr></hr>
+                    <div className="form-floating ">
+                        <input type="text" class="form-control" id="username" name="UserName" value={formValues.UserName} onChange={handleChange} />
+                        <label htmlFor="UserName">UserName</label>
+                    </div><p>{formErrors.UserName}</p>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="phone" name="PhoneNumber" value={formValues.PhoneNumber} onChange={handleChange}/>
+                        <label htmlFor="PhoneNumber">PhoneNumber</label>
+                    </div><p>{formErrors.PhoneNumber}</p>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="location" name="Location" value={formValues.Location} onChange={handleChange} />
+                        <label htmlFor="Location">Location</label>
+                    </div><p>{formErrors.Location}</p>
+                    <div className="form-floating ">
+                        <input type="email" class="form-control" id="email" name="Email" value={formValues.Email} onChange={handleChange} />
+                        <label htmlFor="email">Email</label>
+                    </div><p>{formErrors.Email}</p>
 
-                <div class="form-floating ">
-                    <input type="password" class="form-control" id="Password" name="Password" value={formValues.Password} onChange={handleChange}/>
-                    <label htmlFor="Password">Password</label>
-                </div><p>{formErrors.Password}</p>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="Cpassword" name="Cpassword" value={formValues.Cpassword} onChange={handleChange}/>
-                    <label htmlFor="Cpassword">Cpassword</label>
-                </div><p>{formErrors.Cpassword}</p>
-               
+                    <div class="form-floating ">
+                        <input type="password" class="form-control" id="Password" name="Password" value={formValues.Password} onChange={handleChange}/>
+                        <label htmlFor="Password">Password</label>
+                    </div><p>{formErrors.Password}</p>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="Cpassword" name="Cpassword" value={formValues.Cpassword} onChange={handleChange}/>
+                        <label htmlFor="Cpassword">Cpassword</label>
+                    </div><p>{formErrors.Cpassword}</p>
                 
-                <button class="btn btn-primary">Submit</button>
-                <NavLink to='/login' style={{display:'flex',justifyContent:'flex-end'}}>Already Have an account? Login!</NavLink>
-            </form>
-            
-</div>
+                    
+                    <button class="btn btn-primary">Submit</button>
+                    <NavLink to='/login' style={{display:'flex',justifyContent:'flex-end'}}>Already Have an account? Login!</NavLink>
+                </form>
+            </div>
+            <div className='signup-post'>
+                <img src={recycle} alt='Signup' />
+            </div>
         </div>
     )
 }
