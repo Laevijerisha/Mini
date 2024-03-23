@@ -3,6 +3,18 @@
     background-image: linear-gradient(to bottom,#456481 0,#80b8ec 100%) !important; /* override background image gradient w/ flat color */
 }
 
+.container-fluid {
+    padding-left: 0px           ;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar-wrapper {
+    margin: 35px 40px;
+}
+
 h2{
     color: black;
 }

@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+}
+
+.signup, .signup-post {
+    flex: 1;
+}
