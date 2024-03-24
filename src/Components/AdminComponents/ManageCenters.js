@@ -1,14 +1,26 @@
 import {useState} from 'react';
 import './ManageCenters.css';
-
-const ManageCenters = () => {
-    const [centers, setCenters] = useState([
-        { centerId: '001', name: 'Center A', location: 'Location A' },
-        { centerId: '002', name: 'Center B', location: 'Location B' },
-        { centerId: '003', name: 'Center C', location: 'Location C' },
-        { centerId: '004', name: 'Center D', location: 'Location D' },
-        { centerId: '005', name: 'Center E', location: 'Location E' }
-    ]);
+import { navigate} from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+const ManageCenters = () => 
+{
+    const [centers, setCenters] = useState([{CenterId:"1",Center_Name:"Laevi",CenterLocation:"Madurai",Phone_number:"987654321",Email:"madurai@center.com",Password:"madurai123",personalEmail:"laevijerisha05@gmail.com"}]);
+    const [loading,setLoading]=useState([]);
+    useEffect(()=>{
+        const fetchCenters = async()=>{
+            setLoading(true);
+            const response =await axios.get ('http://localhost:5027/api/Admin');
+            setCenters(response.data);
+            console.log(response.data);
+            setLoading(false);
+        };
+        fetchCenters();
+    },[]);
+    if(loading){
+        return<div>Loading.....</div>
+    }
 
     const handleUpdateCenter = (centerId, field, value) => {
         const updatedCenters = centers.map(center =>
@@ -21,7 +33,10 @@ const ManageCenters = () => {
         const updatedCenters = centers.filter(center => center.centerId !== centerId);
         setCenters(updatedCenters);
     };
-
+     
+    
+    
+  
     const handleAddCenter = () => {
         const newCenterId = centers.length + 1;
         const centerName = prompt('Enter center name:');
@@ -32,7 +47,7 @@ const ManageCenters = () => {
         } else {
             alert('Center name and location are required.');
         }
-    };
+    }
 
     return (
         <div className="manage-centers-page">
@@ -42,7 +57,10 @@ const ManageCenters = () => {
                     <div className="header">Center ID</div>
                     <div className="header">Center Name</div>
                     <div className="header">Location</div>
-                    <div className="header">Actions</div>
+                    <div className="header">PhoneNumber</div>
+                    <div className="header">Email</div>
+                    <div className="header">Password</div>
+                    <div className="header">PersonalEmail</div>
                 </div>
                 {centers.map(center => (
                     <div key={center.centerId} className="data-row">
@@ -57,7 +75,7 @@ const ManageCenters = () => {
             </div>
             <button className="add-center-btn" onClick={handleAddCenter}>Add Center</button>
         </div>
-    );
+    )
 }
 
 export default ManageCenters
