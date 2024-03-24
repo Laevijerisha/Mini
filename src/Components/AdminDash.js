@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import ViewRequests from './AdminComponents/ViewRequests';
+import ManageCenters from './AdminComponents/ManageCenters';
 import './UserDash.css';
 
 const AdminDash = () => {
@@ -42,14 +44,6 @@ const AdminDash = () => {
             </div>
         </div>
     );
-}
-
-const ViewRequests = () => {
-    return <h2>View Requests Page</h2>;
-}
-
-const ManageCenters = () => {
-    return <h2>Manage Centers Page</h2>;
 }
 
 export default AdminDash;

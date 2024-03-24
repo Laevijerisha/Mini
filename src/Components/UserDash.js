@@ -2,6 +2,7 @@ import React from 'react'
 import './UserDash.css'
 import { useState } from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
+import Tracking from './UserComponents/Tracking.js'
 
 function UserDash() {
     const [showSideNav, setShowSideNav] = useState(false);
@@ -24,10 +25,6 @@ function UserDash() {
     
     const SubmitRequest = () => {
         return <h2>Submit Request Page</h2>;
-    }
-    
-    const Tracking = () => {
-        return <h2>Tracking Page</h2>;
     }
 
     return (
@@ -55,7 +52,7 @@ function UserDash() {
                 {/* Render different components based on the activePage state */}
                 {activePage === 'home' && <Home />}
                 {activePage === 'submit' && <SubmitRequest />}
-                {activePage === 'tracking' && <Tracking />}
+                {activePage === 'tracking' && <Tracking currentStep={2}/>}
             </div>
         </div>
     )
